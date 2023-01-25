@@ -14,11 +14,9 @@ terraform {
   }
 }
 
-
 provider "github" {
-  owner = var.ORGNAME
+  owner = "##GITHUB-ORGNAME##"
 }
-
 
 module "organization" {
   source  = "mineiros-io/organization/github"
