@@ -74,7 +74,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
         run: terraform apply -auto-approve -input=false
 
-  Tests-Funcionales:
+  Tests-Funcionales-PR:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     environment: "vmvarela-github-as-code-1"
@@ -109,7 +109,6 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     environment: "prod"
     runs-on: ubuntu-latest
-    needs: [Tests-Unitarios]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -135,3 +134,34 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
         run: terraform apply -auto-approve -input=false
+
+  Tests-Funcionales-Prod:
+    runs-on: ubuntu-latest
+    environment: "prod"
+    needs: [Actualizar-Entorno-Prod]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set TF WORKSPACE
+        run: |
+          sed -i 's/##TERRAFORM-WS##/${{ vars.TF_WS }}/' main.tf
+          sed -i 's/##TERRAFORM-ORG##/${{ vars.TF_ORG }}/' main.tf
+          sed -i 's/##GITHUB-ORGNAME##/${{ vars.TF_VAR_ORGNAME }}/' main.tf
+          cat main.tf
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.3.3
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+
+      - name: Terraform Plan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
+        run: terraform plan -detailed-exitcode
+
