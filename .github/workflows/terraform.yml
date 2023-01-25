@@ -25,7 +25,6 @@ jobs:
           sed -i 's/##TERRAFORM-ORG##/${{ vars.TF_ORG }}/' main.tf
           sed -i 's/##GITHUB-ORGNAME##/${{ vars.TF_VAR_ORGNAME }}/' main.tf
           terraform init
-          echo '${{ toJSON(github) }}'
 
       - name: Terraform Format
         run: terraform fmt -check
