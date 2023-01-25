@@ -1,9 +1,9 @@
 terraform {
   cloud {
-    organization = ##TERRAFORM-ORG##
+    organization = "##TERRAFORM-ORG##"
 
     workspaces {
-      name = ##TERRAFORM-WS##
+      name = "##TERRAFORM-WS##"
     }
   }
   required_providers {
