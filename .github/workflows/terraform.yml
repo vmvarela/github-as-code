@@ -5,9 +5,11 @@ on:
     paths:
       - '**/*.tf'
   pull_request:
+    paths:
+      - '**/*.tf'
 
 jobs:
-  test:
+  ci:
     runs-on: ubuntu-latest
     environment: ${{ github.head_ref }}
     steps:
@@ -83,7 +85,7 @@ jobs:
         if: github.event_name != 'pull_request'
         run: terraform apply -auto-approve -input=false
 
-  prod:
+  cd:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     environment: "prod"
     runs-on: ubuntu-latest
