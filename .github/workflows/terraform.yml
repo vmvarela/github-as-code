@@ -11,7 +11,7 @@ on:
       - '**/*.tf'
 
 jobs:
-  Unit-Test:
+  Tests-Unitarios:
     runs-on: ubuntu-latest
     environment: "vmvarela-github-as-code-1"
     steps:
@@ -43,11 +43,11 @@ jobs:
         id: validate
         run: terraform validate -no-color
 
-  Update-Feature-Env:
+  Actualizar-Entorno-PR:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     environment: "vmvarela-github-as-code-1"
-    needs: [Unit-Test]
+    needs: [Tests-Unitarios]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -74,11 +74,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
         run: terraform apply -auto-approve -input=false
 
-  System-Tests:
+  Tests-Funcionales:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     environment: "vmvarela-github-as-code-1"
-    needs: [Update-Feature-Env]
+    needs: [Actualizar-Entorno-PR]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -105,11 +105,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
         run: terraform plan -detailed-exitcode
 
-  Update-Prod-Env:
+  Actualizar-Entorno-Prod:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     environment: "prod"
     runs-on: ubuntu-latest
-    needs: [Unit-Test]
+    needs: [Tests-Unitarios]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
