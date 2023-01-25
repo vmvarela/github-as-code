@@ -11,5 +11,5 @@ jobs:
     steps:
       - run: |
             echo Se ha creado la PR            
-            echo crear entorno BRANCH ${{ github.ref_name }}
+            echo crear entorno BRANCH ${{ github.head_ref }}
  
