@@ -16,7 +16,7 @@ terraform {
 
 
 provider "github" {
-  owner = var.orgname
+  owner = var.ORGNAME
 }
 
 
