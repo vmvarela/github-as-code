@@ -23,7 +23,7 @@ module "organization" {
   version = "~> 0.9.0"
 
   settings = {
-    billing_email                                                = "jmmartinez+prisa@clb.t-prisa.com"
+    # billing_email                                                = "jmmartinez+prisa@clb.t-prisa.com"
     company                                                      = "PRISA Media"
     location                                                     = "Spain"
     name                                                         = "PRISA Media"
@@ -49,40 +49,5 @@ module "organization" {
     secret_scanning_enabled_for_new_repositories                 = false
     secret_scanning_push_protection_enabled_for_new_repositories = false
   }
-
-
-  members = [
-    "agarciamo-clb_prisa",
-    "apereira-clb_prisa",
-    "cvelardec_prisa",
-    "dcastrog-clb_prisa",
-    "dperezp_prisa",
-    "emartinez_prisa",
-    "jalvarez_prisa",
-    "jdiazb-clb_prisa",
-    "jdinicola_prisa",
-    "jgonzalezl-clb_prisa",
-    "jlalvarez-clb_prisa",
-    "mmromero-clb_prisa",
-    "mpelaz-s00_prisa",
-    "mpelaz_prisa",
-    "mrodriguezd-clb_prisa",
-    "rsantacreu-clb_prisa",
-    "vprietob-clb_prisa"
-  ]
-
-  admins = [
-    "asantamaria-clb_prisa",
-    "bpeiro-clb_prisa",
-    "cgarciaga-clb_prisa",
-    "dcarral-clb_prisa",
-    "defrancis-clb_prisa",
-    "dgarcia_prisa",
-    "ebarberan-clb_prisa",
-    "fjpinto-clb_prisa",
-    "jmmartinez-clb_prisa",
-    "pclementealloza-clb_prisa",
-    "vmvarela-clb_prisa"
-  ]
 
 }
