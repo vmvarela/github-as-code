@@ -24,11 +24,11 @@ module "organization" {
 
   settings = {
     billing_email                                                = "vmvarela@gmail.com"
-    company                                                      = "PRISA Media"
+    company                                                      = "Github As Code DEMO"
     location                                                     = "Spain"
-    name                                                         = "PRISA Media (XIII)"
-    description                                                  = "PRISA es uno de los principales grupos de educación y medios de comunicación gracias a la calidad de sus contenidos y a su espíritu innovador."
-    blog                                                         = "https://www.prisa.com"
+    name                                                         = "Github As Code DEMO (XIV)"
+    description                                                  = "Organizacion para demostracion de flujo de Terraform con Github."
+    blog                                                         = "https://github.blog"
     twitter_username                                             = ""
     has_organization_projects                                    = false
     has_repository_projects                                      = false
@@ -49,5 +49,11 @@ module "organization" {
     secret_scanning_enabled_for_new_repositories                 = false
     secret_scanning_push_protection_enabled_for_new_repositories = false
   }
+
+  members = [
+    "vmvarela-desarrollador",
+    "vmvarela-codeowner",
+    "vmvarela-jefeequipo"
+  ]
 
 }
