@@ -13,14 +13,13 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
-    environment: ${{ github.base_ref }}
+    environment: "vmvarela-github-as-code-1"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set TF WORKSPACE
         run: |
-          echo "${{ github.event }} : ${{ vars.TF_WS }}"
           sed -i 's/##TERRAFORM-WS##/${{ vars.TF_WS }}/' main.tf
           sed -i 's/##TERRAFORM-ORG##/${{ vars.TF_ORG }}/' main.tf
           cat main.tf
