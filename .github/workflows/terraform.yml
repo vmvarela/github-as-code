@@ -16,8 +16,8 @@ jobs:
 
       - name: Set TF WORKSPACE
         run: |
-          sed -i 's/##TERRAFORM-WS##/${{ secrets.TF_WS }}/' main.tf
-          sed -i 's/##TERRAFORM-ORG##/${{ secrets.TF_ORG }}/' main.tf
+          sed -i 's/##TERRAFORM-WS##/${{ vars.TF_WS }}/' main.tf
+          sed -i 's/##TERRAFORM-ORG##/${{ vars.TF_ORG }}/' main.tf
           cat main.tf
 
       - name: Setup Terraform
