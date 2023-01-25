@@ -32,6 +32,9 @@ jobs:
       - name: Terraform Validate
         run: terraform validate -no-color
 
+      - name: Terraform Plan
+        run: terraform plan -auto-approve -input=false
+
   Desplegar-Entorno-PR:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
@@ -49,9 +52,8 @@ jobs:
           sed -i 's/##GITHUB-ORGNAME##/${{ vars.TF_VAR_ORGNAME }}/' main.tf
           terraform init
           echo 'echo 'head_ref: ${{ github.head_ref }}''
-          echo 'echo 'base_ref: ${{ github.base_ref }}''
 
-      - name: TF Apply
+      - name: Terraform Apply
         env:
           GITHUB_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
         run: terraform apply -auto-approve -input=false
@@ -78,11 +80,8 @@ jobs:
           sed -i 's/##TERRAFORM-ORG##/${{ vars.TF_ORG }}/' main.tf
           sed -i 's/##GITHUB-ORGNAME##/${{ vars.TF_VAR_ORGNAME }}/' main.tf
           terraform init
-          echo 'echo 'head_ref: ${{ github.head_ref }}''
-          echo 'echo 'base_ref: ${{ github.base_ref }}''
 
-
-      - name: TF Apply
+      - name: Terraform Apply
         env:
           GITHUB_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
         run: terraform apply -auto-approve -input=false
