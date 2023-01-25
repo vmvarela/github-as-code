@@ -1,12 +1,10 @@
-# destruye entorno rama
-
 on:
   pull_request_target:
     types:
       - closed
 
 jobs:
-  destruye-entorno:
+  Destroy-Feature-Env:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
