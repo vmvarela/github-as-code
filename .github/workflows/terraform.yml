@@ -13,7 +13,7 @@ on:
 jobs:
   Tests-Unitarios:
     runs-on: ubuntu-latest
-    environment: "vmvarela-github-as-code-1"
+    environment: "test"
     steps:
       - uses: actions/checkout@v3
       - uses: hashicorp/setup-terraform@v2
@@ -37,10 +37,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
         run: terraform plan -no-color
 
-  Desplegar-Entorno-PR:
+  Desplegar-Entorno-Test:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
-    environment: "vmvarela-github-as-code-1"
+    environment: "test"
     needs: [Tests-Unitarios]
     steps:
       - uses: actions/checkout@v3
