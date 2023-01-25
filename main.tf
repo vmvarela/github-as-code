@@ -1,4 +1,11 @@
 terraform {
+  cloud {
+    organization = ##TERRAFORM-ORG##
+
+    workspaces {
+      name = ##TERRAFORM-WS##
+    }
+  }
   required_providers {
     github = {
       source  = "integrations/github"
@@ -8,7 +15,7 @@ terraform {
 }
 
 provider "github" {
-  owner = var.org
+  owner = var.orgname
 }
 
 module "organization" {
