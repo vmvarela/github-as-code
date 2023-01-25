@@ -11,7 +11,7 @@ on:
       - '**/*.tf'
 
 jobs:
-  ci:
+  Test-Update-Feature-Env:
     runs-on: ubuntu-latest
     environment: "vmvarela-github-as-code-1"
     steps:
@@ -43,21 +43,16 @@ jobs:
         id: validate
         run: terraform validate -no-color
 
-      - name: Terraform Plan
-        id: plan
-        if: github.event_name == 'pull_request'
-        run: terraform plan -no-color -input=false
-
-      - name: Terraform Apply (entorno rama)
+      - name: Terraform Apply
         env:
           GITHUB_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
         run: terraform apply -auto-approve -input=false
 
-  cd:
+  Deploy-Prod-Env:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     environment: "prod"
     runs-on: ubuntu-latest
-    needs: [ci]
+    needs: [Test-Update-Feature-Env]
     steps:
       - name: Terraform Apply
         env:
