@@ -16,6 +16,7 @@ jobs:
 
       - name: Set TF WORKSPACE
         run: |
+          echo "${{ github.ref_name }} : ${{ vars.TF_WS }}"
           sed -i 's/##TERRAFORM-WS##/${{ vars.TF_WS }}/' main.tf
           sed -i 's/##TERRAFORM-ORG##/${{ vars.TF_ORG }}/' main.tf
           cat main.tf
