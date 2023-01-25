@@ -12,6 +12,7 @@ on:
 
 jobs:
   Tests-Unitarios:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     environment: "vmvarela-github-as-code-1"
     steps:
