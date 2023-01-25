@@ -1,0 +1,12 @@
+on:
+    pull_request_target:
+    types:
+      - opened
+      
+jobs:
+  run_if:
+    if:  startsWith(github.head_ref, 'releases/')
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The head of this PR starts with 'releases/'"
+ 
