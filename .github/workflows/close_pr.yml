@@ -1,14 +1,16 @@
+# destruye entorno rama
+
 on:
   pull_request_target:
     types:
       - closed
 
 jobs:
-  destroy-environment:
+  destruye-entorno:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo The PR was merged
-        echo delete BRANCH environment
+        echo Se ha mergeado a main la PR
+        echo eliminar entorno BRANCH ${{ github.ref_name }}
 
