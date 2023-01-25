@@ -23,7 +23,7 @@ module "organization" {
   version = "~> 0.9.0"
 
   settings = {
-    # billing_email                                                = "jmmartinez+prisa@clb.t-prisa.com"
+    billing_email                                                = "vmvarela@gmail.com"
     company                                                      = "PRISA Media"
     location                                                     = "Spain"
     name                                                         = "PRISA Media"
