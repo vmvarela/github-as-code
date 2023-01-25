@@ -13,14 +13,14 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
-    environment: ${{ github.head_ref }}
+    environment: ${{ github.ref_name }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set TF WORKSPACE
         run: |
-          echo "${{ github.head_ref }} : ${{ vars.TF_WS }}"
+          echo "${{ github.ref_name }} : ${{ vars.TF_WS }}"
           sed -i 's/##TERRAFORM-WS##/${{ vars.TF_WS }}/' main.tf
           sed -i 's/##TERRAFORM-ORG##/${{ vars.TF_ORG }}/' main.tf
           cat main.tf
