@@ -33,7 +33,9 @@ jobs:
         run: terraform validate -no-color
 
       - name: Terraform Plan
-        run: terraform plan -auto-approve -input=false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
+        run: terraform plan -auto-approve
 
   Desplegar-Entorno-PR:
     if: github.event_name == 'pull_request'
