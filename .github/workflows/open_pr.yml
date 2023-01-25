@@ -1,12 +1,10 @@
-# crea entorno rama
-
 on:
   pull_request_target:
     types:
       - opened
       
 jobs:
-   crea-entorno:
+   Create-Feature-Env:
     runs-on: ubuntu-latest
     steps:
       - run: |
