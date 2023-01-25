@@ -24,9 +24,9 @@ module "organization" {
 
   settings = {
     billing_email                                                = "vmvarela@gmail.com"
-    company                                                      = "PRISA Media (test)"
+    company                                                      = "PRISA Media"
     location                                                     = "Spain"
-    name                                                         = "PRISA Media"
+    name                                                         = "PRISA Media (test)"
     description                                                  = "PRISA es uno de los principales grupos de educación y medios de comunicación gracias a la calidad de sus contenidos y a su espíritu innovador."
     blog                                                         = "https://www.prisa.com"
     twitter_username                                             = "PRISA"
