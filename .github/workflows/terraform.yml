@@ -74,7 +74,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
         run: terraform apply -auto-approve -input=false
 
-  Systems-Tests:
+  System-Tests:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     environment: "vmvarela-github-as-code-1"
@@ -100,10 +100,10 @@ jobs:
         id: init
         run: terraform init
 
-      - name: Terraform Apply
+      - name: Terraform Plan
         env:
           GITHUB_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
-        run: terraform apply -auto-approve -input=false
+        run: terraform plan -detailed-exitcode
 
   Deploy-Prod-Env:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
