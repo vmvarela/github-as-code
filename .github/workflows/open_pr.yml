@@ -4,7 +4,7 @@ on:
       - opened
       
 jobs:
-   Crer-Entorno-PR:
+   Crear-Entorno-PR:
     runs-on: ubuntu-latest
     steps:
       - run: |
