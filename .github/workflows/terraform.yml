@@ -14,8 +14,6 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     environment: "vmvarela-github-as-code-1"
-    env:
-      TF_VAR_ORGNAME: ${{ vars.TF_VAR_ORGNAME }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -24,6 +22,7 @@ jobs:
         run: |
           sed -i 's/##TERRAFORM-WS##/${{ vars.TF_WS }}/' main.tf
           sed -i 's/##TERRAFORM-ORG##/${{ vars.TF_ORG }}/' main.tf
+          sed -i 's/##GITHUB-ORGNAME##/${{ vars.TF_VAR_ORGNAME }}/' main.tf
           cat main.tf
 
       - name: Setup Terraform
