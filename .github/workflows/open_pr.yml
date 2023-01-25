@@ -1,12 +1,13 @@
 on:
-    pull_request_target:
+  pull_request_target:
     types:
       - opened
       
 jobs:
-  run_if:
-    if:  startsWith(github.head_ref, 'releases/')
+   create-environment:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "The head of this PR starts with 'releases/'"
+      - run: |
+            echo The PR is opened            
+            echo create BRANCH environment
  
