@@ -48,7 +48,8 @@ jobs:
           sed -i 's/##TERRAFORM-ORG##/${{ vars.TF_ORG }}/' main.tf
           sed -i 's/##GITHUB-ORGNAME##/${{ vars.TF_VAR_ORGNAME }}/' main.tf
           terraform init
-          echo '${{ github.ref_name }}'
+          echo 'echo 'head_ref: ${{ github.head_ref }}''
+          echo 'echo 'base_ref: ${{ github.base_ref }}''
 
       - name: TF Apply
         env:
@@ -77,6 +78,9 @@ jobs:
           sed -i 's/##TERRAFORM-ORG##/${{ vars.TF_ORG }}/' main.tf
           sed -i 's/##GITHUB-ORGNAME##/${{ vars.TF_VAR_ORGNAME }}/' main.tf
           terraform init
+          echo 'echo 'head_ref: ${{ github.head_ref }}''
+          echo 'echo 'base_ref: ${{ github.base_ref }}''
+
 
       - name: TF Apply
         env:

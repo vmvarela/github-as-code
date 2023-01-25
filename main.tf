@@ -26,7 +26,7 @@ module "organization" {
     billing_email                                                = "vmvarela@gmail.com"
     company                                                      = "PRISA Media"
     location                                                     = "Spain"
-    name                                                         = "PRISA Media (IX)"
+    name                                                         = "PRISA Media (XI)"
     description                                                  = "PRISA es uno de los principales grupos de educación y medios de comunicación gracias a la calidad de sus contenidos y a su espíritu innovador."
     blog                                                         = "https://www.prisa.com"
     twitter_username                                             = ""
