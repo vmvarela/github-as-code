@@ -1,4 +1,4 @@
-# crear entorno PR
+# crea entorno rama
 
 on:
   pull_request_target:
@@ -6,10 +6,10 @@ on:
       - opened
       
 jobs:
-   create-environment:
+   crea-entorno:
     runs-on: ubuntu-latest
     steps:
       - run: |
-            echo The PR is opened            
-            echo create BRANCH environment
+            echo Se ha creado la PR            
+            echo crear entorno BRANCH ${{ github.ref_name }}
  
