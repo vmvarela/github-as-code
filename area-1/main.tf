@@ -3,7 +3,7 @@
 module "jefe-area-1" {
   source  = "../modules/team"
 
-  name        = "area-1-jefes"
+  name        = "jefe-area-1"
   description = "Jefes Area 1"
   privacy     = "secret"
 
