@@ -9,5 +9,5 @@ jobs:
     steps:
       - run: |
             echo Se ha creado la PR            
-            echo crear entorno BRANCH ${{ github.actor }}
+            echo crear entorno "${{ github.actor }}" si no existe
  
