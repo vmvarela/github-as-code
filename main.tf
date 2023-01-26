@@ -58,3 +58,11 @@ module "organization" {
   ]
 
 }
+
+module "area-1" {
+   source = "./area-1"
+}
+
+module "area-2" {
+   source = "./area-2"
+}
