@@ -19,8 +19,9 @@ provider "github" {
 }
 
 module "organization" {
-  source  = "mineiros-io/organization/github"
-  version = "~> 0.9.0"
+  # source  = "mineiros-io/organization/github"
+  # version = "~> 0.9.0"
+  source = "./modules/organization"
 
   settings = {
     billing_email                                                = "vmvarela@gmail.com"
@@ -58,3 +59,12 @@ module "organization" {
   ]
 
 }
+
+module "area-1" {
+  source = "./area-1"
+}
+
+module "area-2" {
+  source = "./area-2"
+}
+
