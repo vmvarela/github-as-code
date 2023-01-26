@@ -1,4 +1,4 @@
-name: Crear Entorno Desarrollo
+name: Crear Entorno
 
 on:
   pull_request_target:
