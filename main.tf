@@ -26,7 +26,7 @@ module "organization" {
     billing_email                                                = "vmvarela@gmail.com"
     company                                                      = "Github As Code DEMO"
     location                                                     = "Spain"
-    name                                                         = "Github As Code DEMO (XIV)"
+    name                                                         = "Github As Code DEMO (XV)"
     description                                                  = "Organizacion para demostracion de flujo de Terraform con Github."
     blog                                                         = "https://github.blog"
     twitter_username                                             = ""
@@ -53,7 +53,8 @@ module "organization" {
   members = [
     "vmvarela-desarrollador",
     "vmvarela-codeowner",
-    "vmvarela-jefeequipo"
+    "vmvarela-jefeequipo",
+    "vmvarela-jefearea"
   ]
 
 }
