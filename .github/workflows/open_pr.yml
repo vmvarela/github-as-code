@@ -1,3 +1,5 @@
+name: Crear Entorno
+
 on:
   pull_request_target:
     types:
@@ -9,5 +11,5 @@ jobs:
     steps:
       - run: |
             echo Se ha creado la PR            
-            echo crear entorno BRANCH ${{ github.head_ref }}
+            echo crear entorno "${{ github.actor }}" si no existe
  

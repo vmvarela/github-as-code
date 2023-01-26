@@ -1,3 +1,5 @@
+name: Destruir Entorno
+
 on:
   pull_request_target:
     types:
@@ -10,5 +12,5 @@ jobs:
     steps:
     - run: |
         echo Se ha mergeado a main la PR
-        echo eliminar entorno BRANCH ${{ github.head_ref }}
+        echo eliminar entorno "${{ github.actor }}" si no se va a usar
 
