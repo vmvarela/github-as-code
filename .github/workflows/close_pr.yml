@@ -1,4 +1,4 @@
-name: Destruir Entorno Desarrollo
+name: Destruir Entorno
 
 on:
   pull_request_target:
