@@ -10,5 +10,5 @@ jobs:
     steps:
     - run: |
         echo Se ha mergeado a main la PR
-        echo eliminar entorno BRANCH ${{ github.actor }}
+        echo eliminar entorno "${{ github.actor }}" si no se va a usar
 
