@@ -1,6 +1,4 @@
-*                @vmvarela
-main.tf          @vmvarela
-/areas/area-1/** @vmvarela
-/areas/area-2/** @vmvarela
+main.tf       @vmvarela
+/area-1/**.tf @vmvarela-jefearea
 
 
